@@ -39,58 +39,64 @@ const CalendarMain = () => {
   return (
     <div className="main">
       <div className="calendarSelector">
-        <table className="dayOfWeek">
-          <thead className="dayName">
-            <tr>
-              {weekDayNames.map((name) => (
-                <th key={name}>{name}</th>
-              ))}
-            </tr>
+        <table>
+          <thead>
+            <table className="dayOfWeek">
+              <table className="dayName">
+                <tr>
+                  {weekDayNames.map((name) => (
+                    <th key={name}>{name}</th>
+                  ))}
+                </tr>
+              </table>
+              <table className="dayNumber">
+                {monthData.map((week, index) => (
+                  <tr key={index} className="week">
+                    {week.map((date, index) =>
+                      date ? (
+                        <td key={index}>{date.getDate()} </td>
+                      ) : (
+                        <td key={index} />
+                      )
+                    )}
+                  </tr>
+                ))}
+              </table>
+            </table>
+            <div className="slider">
+              <button>{"<"}</button>
+              <div className="selects">
+                <select id="month">
+                  {monthNames.map((name, index) => (
+                    <option key={name} value={index}>
+                      {name}
+                    </option>
+                  ))}
+                </select>
+                <select id="year">
+                  {years.map((year) => (
+                    <option key={year}>{year}</option>
+                  ))}
+                </select>
+              </div>
+              <button>{">"}</button>
+            </div>
           </thead>
-          <tbody className="dayNumber">
-            {monthData.map((week, index) => (
-              <tr key={index} className="week">
-                {week.map((date, index) =>
-                  date ? (
-                    <td key={index}>{date.getDate()} </td>
-                  ) : (
-                    <td key={index} />
-                  )
-                )}
+        </table>
+      </div>
+      <div className="calendarMatrix">
+        <table>
+          <tbody>
+            {matrix.blocks.map((time) => (
+              <tr>
+                {time.map((day) => (
+                  <th>{day}</th>
+                ))}
               </tr>
             ))}
           </tbody>
         </table>
-        <div className="slider">
-          <button>{"<"}</button>
-          <div className="selects">
-            <select id="month">
-              {monthNames.map((name, index) => (
-                <option key={name} value={index}>
-                  {name}
-                </option>
-              ))}
-            </select>
-            <select id="year">
-              {years.map((year) => (
-                <option key={year}>{year}</option>
-              ))}
-            </select>
-          </div>
-          <button>{">"}</button>
-        </div>
       </div>
-      <table className="calendarMatrix">
-        <tbody>
-          {matrix.blocks.map((time) => (
-            <tr>
-              {time.map((day) => (
-                <th>{day}</th>
-              ))}
-            </tr>
-          ))}
-        </tbody>
-      </table>
     </div>
   );
 };
