@@ -1,0 +1,14 @@
+.footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border: black 1px solid;
+  flex: 1;
+}
+
+.footerBut {
+  margin: 30px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  /* border: black 1px solid; */
+}
