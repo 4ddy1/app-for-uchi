@@ -1,0 +1,58 @@
+.main {
+  display: flex;
+  flex: 20;
+  flex-direction: column;
+  overflow: scroll;
+
+  border: black 1px solid;
+}
+
+.calendarSelector {
+  display: flex;
+  flex-direction: column;
+  /* border: black 1px solid; */
+}
+
+.slider {
+  display: flex;
+  justify-content: space-around;
+}
+
+.slider button {
+  font-size: large;
+}
+
+.dayOfWeek {
+  display: flex;
+  flex-direction: column;
+  margin: 15px;
+}
+
+.dayName {
+  display: flex;
+}
+
+.dayName tr {
+  display: flex;
+  flex: 1;
+  justify-content: space-around;
+}
+
+.dayNumber {
+  display: flex;
+  justify-content: center;
+}
+
+.week {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+}
+
+.calendarMatrix {
+  /* width: 100px; */
+}
+.calendarMatrix tbody tr th {
+  height: 30px;
+  border: black 1px solid;
+}
