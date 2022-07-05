@@ -36,36 +36,35 @@ const CalendarMain = () => {
   const matrix = {
     blocks: [...Array.from(Array(24).keys())].map((i) => [...Array(8).keys()]),
   };
+  const changeWeek = (x) => {};
   return (
     <div className="main">
       <div className="calendarSelector">
         <table>
           <thead>
-            <table className="dayOfWeek">
-              <table className="dayName">
-                <tr>
-                  {weekDayNames.map((name) => (
-                    <th key={name}>{name}</th>
-                  ))}
-                </tr>
-              </table>
-              <table className="dayNumber">
-                {monthData.map((week, index) => (
-                  <tr key={index} className="week">
-                    {week.map((date, index) =>
-                      date ? (
-                        <td key={index}>{date.getDate()} </td>
-                      ) : (
-                        <td key={index} />
-                      )
-                    )}
-                  </tr>
-                ))}
-              </table>
-            </table>
-            <div className="slider">
-              <button>{"<"}</button>
-              <div className="selects">
+            <tr className="dayName">
+              {weekDayNames.map((name) => (
+                <th key={name}>{name}</th>
+              ))}
+            </tr>
+            <tr className="dayNumber">
+              {monthData.map((week, index) => (
+                <th key={index} className="week">
+                  {week.map((date, index) =>
+                    date ? (
+                      <div key={index}>{date.getDate()} </div>
+                    ) : (
+                      <div key={index} />
+                    )
+                  )}
+                </th>
+              ))}
+            </tr>
+            <tr className="slider">
+              <th>
+                <button>{"<"}</button>
+              </th>
+              <th className="selects">
                 <select id="month">
                   {monthNames.map((name, index) => (
                     <option key={name} value={index}>
@@ -78,19 +77,21 @@ const CalendarMain = () => {
                     <option key={year}>{year}</option>
                   ))}
                 </select>
-              </div>
-              <button>{">"}</button>
-            </div>
+              </th>
+              <th>
+                <button>{">"}</button>
+              </th>
+            </tr>
           </thead>
         </table>
       </div>
       <div className="calendarMatrix">
         <table>
           <tbody>
-            {matrix.blocks.map((time) => (
-              <tr>
-                {time.map((day) => (
-                  <th>{day}</th>
+            {matrix.blocks.map((time, index) => (
+              <tr key={`time_${index}`}>
+                {time.map((day, dayIndex) => (
+                  <th key={`day_${dayIndex}_${index}`}>{day}</th>
                 ))}
               </tr>
             ))}

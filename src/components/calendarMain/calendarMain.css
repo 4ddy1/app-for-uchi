@@ -29,17 +29,7 @@
   font-size: large;
 }
 
-.dayOfWeek {
-  display: flex;
-  flex-direction: column;
-  margin: 15px;
-}
-
 .dayName {
-  display: flex;
-}
-
-.dayName tr {
   display: flex;
   flex: 1;
   justify-content: space-around;
